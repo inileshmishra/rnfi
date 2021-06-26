@@ -1,0 +1,100 @@
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+
+  <div class="card mt-3 shadow">
+    <div class="card-body">
+      <h5 class="card-title">ICICI</h5>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="username">SLAB MIN</label>
+            <input type="text" class="form-control" formControlName="icici_slab_min" />
+          </div>
+
+          <div class="form-group">
+            <label for="username">SLAB MAX</label>
+            <input type="text" class="form-control" formControlName="icici_slab_max" />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="username">VALUE</label>
+            <input type="text" class="form-control" formControlName="icici_slab_value" />
+          </div>
+
+          <div class="form-group">
+            <label for="username">IS FIXED</label>
+            <input type="text" class="form-control" formControlName="icici_is_fixed" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card mt-3 shadow">
+    <div class="card-body">
+      <h5 class="card-title">INDUS</h5>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="username">SLAB MIN</label>
+            <input type="text" class="form-control" formControlName="indus_slab_min" />
+          </div>
+
+          <div class="form-group">
+            <label for="username">SLAB MAX</label>
+            <input type="text" class="form-control" formControlName="indus_slab_max" />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="username">VALUE</label>
+            <input type="text" class="form-control" formControlName="indus_slab_value" />
+          </div>
+
+          <div class="form-group">
+            <label for="username">IS FIXED</label>
+            <input type="text" class="form-control" formControlName="indus_is_fixed" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt-3 shadow">
+    <div class="card-body">
+      <h5 class="card-title">FINO</h5>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="username">SLAB MIN</label>
+            <input type="text" class="form-control" formControlName="fino_slab_min" />
+          </div>
+
+          <div class="form-group">
+            <label for="username">SLAB MAX</label>
+            <input type="text" class="form-control" formControlName="fino_slab_max" />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="username">VALUE</label>
+            <input type="text" class="form-control" formControlName="fino_slab_value" />
+          </div>
+
+          <div class="form-group">
+            <label for="username">IS FIXED</label>
+            <input type="text" class="form-control" formControlName="fino_is_fixed" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group pt-3">
+    <button class="btn btn-primary">
+      Save
+    </button>
+  </div>
+
+</form>

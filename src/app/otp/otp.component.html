@@ -1,0 +1,17 @@
+<div class="card mt-3 shadow">
+    <div class="card-body">
+        <h2 class="text-center">OTP</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="username">OTP</label>
+                <input type="number" class="form-control" formControlName="otp" />
+            </div>
+
+            <div class="form-group pt-3">
+                <button class="btn btn-primary">
+                    Login
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
