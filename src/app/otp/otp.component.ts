@@ -15,9 +15,10 @@ import { LoginService } from '../_services/login.service';
 })
 export class OtpComponent implements OnInit {
 
-  loginForm: FormGroup;
+  otpForm: FormGroup;
   loading = false;
   submitted = false;
+  errorMessage: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,7 +26,7 @@ export class OtpComponent implements OnInit {
     private login: LoginService) { }
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
+    this.otpForm = this.formBuilder.group({
       otp: ['', Validators.required]
     });
   }
@@ -36,15 +37,19 @@ export class OtpComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
     // stop here if form is invalid
-    if (this.loginForm.invalid) {
+    if (this.otpForm.invalid) {
       return;
     }
 
-    this.login.submitOtp('e090c25187ee2b3f9f1f8a02747356641', 'e090c25187ee2j890890skjb3f9f1f8a027r7kjd99', this.loginForm.value.otp)
+    this.login.submitOtp('e090c25187ee2b3f9f1f8a02747356641', 'e090c25187ee2j890890skjb3f9f1f8a027r7kjd99', this.otpForm.value.otp)
       .subscribe(
         (data) => {
-          console.log(data);
-          this.router.navigateByUrl('dashboard');
+          if (data.response === 2000) {
+            this.router.navigateByUrl('dashboard');
+          } else {
+            this.errorMessage = data.message;
+          }
+
         });
     this.loading = true;
   }
