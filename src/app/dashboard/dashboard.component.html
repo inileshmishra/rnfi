@@ -1,5 +1,9 @@
 <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
 
+  <div *ngIf="sucessMessage" class="alert alert-success mt-3" role="alert">
+    {{sucessMessage}}
+  </div>
+
   <div class="card mt-3 shadow">
     <div class="card-body">
       <h5 class="card-title">ICICI</h5>

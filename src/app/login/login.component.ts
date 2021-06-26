@@ -49,6 +49,9 @@ export class LoginComponent implements OnInit {
         } else {
           console.log(data);
           this.errorMessage = data.message;
+          setTimeout(() => {
+            this.errorMessage = null;
+          }, 10000);
         }
       });
   }

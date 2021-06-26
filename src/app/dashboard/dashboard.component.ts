@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
 
   public formData: Datum;
   dataForm: FormGroup;
+  sucessMessage: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -56,7 +57,33 @@ export class DashboardComponent implements OnInit {
    * when user submit form Data.
    */
   onSubmit(): void {
+    console.log(this.dataForm);
+    const updateData = {
+      "icici": {
+        "slab_min": this.dataForm.value.icici_slab_min, "slab_max": this.dataForm.value.icici_slab_max,
+        "value": this.dataForm.value.icici_slab_value, "is_fixed": this.dataForm.value.icici_is_fixed
+      },
+      "indus": {
+        "slab_min": this.dataForm.value.indus_slab_min, "slab_max": this.dataForm.value.indus_slab_max,
+        "value": this.dataForm.value.indus_slab_value, "is_fixed": this.dataForm.value.indus_is_fixed
+      },
+      "fino": {
+        "slab_min": this.dataForm.value.fino_slab_min, "slab_max": this.dataForm.value.fino_slab_max,
+        "value": this.dataForm.value.fino_slab_value, "is_fixed": this.dataForm.value.fino_is_fixed
+      }
+    };
 
+
+
+    this.dashboardSer.updateDynamicFormData('e090c25187ee2b3f9f1f8a02747356641', 'e090c25187ee2j890890skjb3f9f1f8a027r7kjd99', updateData)
+      .subscribe(
+        (data) => {
+          this.sucessMessage = data.message;
+
+          setTimeout(() => {
+            this.sucessMessage = null;
+          }, 10000);
+        });
   }
 
 }

@@ -48,10 +48,12 @@ export class OtpComponent implements OnInit {
             this.router.navigateByUrl('dashboard');
           } else {
             this.errorMessage = data.message;
+            setTimeout(() => {
+              this.errorMessage = null;
+            }, 10000);
           }
-
         });
-    this.loading = true;
+
   }
 
 }

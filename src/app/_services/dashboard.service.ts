@@ -31,4 +31,19 @@ export class DashboardService {
     );
   }
 
+  /**
+   * Update dashboard data.
+   */
+  updateDynamicFormData(token, authToken, json): Observable<any> {
+    const body = new HttpParams()
+      .set('token', token)
+      .append('authToken', authToken)
+      .append('json', json);
+
+    return this.httpClient.post<FormObject>('https://paysprint.in/service-api/testangular/api/TestAngular/createDynamicform', body, {
+      headers: { 'Authkey': 'test-angular-2021' }
+    }
+    );
+  }
+
 }
